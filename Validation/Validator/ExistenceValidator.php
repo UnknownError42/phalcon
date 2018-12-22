@@ -16,6 +16,18 @@ class ExistenceValidator extends Validator implements ValidatorInterface
 {
     /**
      * Executes the validation
+     * Usage: $validator->add(
+     *           'categoryParentId',
+     *           new ExistenceValidator([
+     *               'model' => __CLASS__,
+     *               'column' => 'categoryId',
+     *               'conditions' => [
+     *                   'where' => 'categoryVendorId = :vendorId:',
+     *                   'bind' => ['vendorId' => $this->categoryVendorId]
+     *               ],
+     *               'message' => 'Parent category does not exist'
+     *           ]
+     *       )
      *
      * @param \Phalcon\Validation $validator
      * @param string $attribute
